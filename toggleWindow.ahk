@@ -1,8 +1,3 @@
-; Variables definition
-; -----------------------------------------------------------------------------
-EnvGet, userProfile, USERPROFILE
-Software := userProfile . "\Dropbox\software\"
-
 ; Launch or toggle program, http://lifehacker.com/5468862/create-a-shortcut-key-for-restoring-a-specific-window
 ; -----------------------------------------------------------------------------
 ToggleWinMinimize(WindowTitle)
