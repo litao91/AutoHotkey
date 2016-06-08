@@ -58,7 +58,7 @@ RegisterWindow(bindKey) {
 
 AskForKeyBindAndRegWin(bindKey) {
     WinGet, WinId, ID, A
-    InputBox, key, ,"Enter the key you want to bind with %bindKey% to activate %ID%"
+    InputBox, key, ,"Enter the key you want to bind with %bindKey% to activate %WinId%"
     finalKey = %bindKey% & %key%
     callback := Func("ToggleWinMinimizeById").bind(WinId)
     Hotkey, % finalKey, % callback, On
