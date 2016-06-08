@@ -98,3 +98,4 @@ AskForKeyBindAndRegWin(bindKey) {
 #+7::RegisterWindow("Home & 7")
 #+8::RegisterWindow("Home & 8")
 #+9::RegisterWindow("Home & 9")
+#+m::AskForKeyBindAndRegWin("Home")
