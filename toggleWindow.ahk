@@ -4,9 +4,11 @@ ToggleWinMinimize(WindowTitle)
 {
     SetTitleMatchMode,2
     DetectHiddenWindows, Off
+    /*
     IfWinActive, %WindowTitle%
     WinMinimize, %WindowTitle%
     Else
+    */
     IfWinExist, %WindowTitle%
     {
         WinActivate
