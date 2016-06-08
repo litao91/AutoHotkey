@@ -43,9 +43,19 @@ ActiveWinTitleFromInput()
     ToggleWinMinimize(winTitle)
 }
 
+RegisterWindow(bindKey) {
+    WinGetActiveTitle, WinTitle
+    key = #+%bindKey%
+    callback := Func("ToggleWinMinimize").bind(WinTitle)
+    MsgBox, %key%
+    Hotkey, %key%, callback, On
+}
+
 <!h::ToggleWinMinimize("hadoop-main")
 <!s::ToggleWinMinimize("spark-parent")
 <!e::ToggleWinMinimize("Microsoft Edge")
 <!c::ToggleWinMinimize("ConsoleZ")
 <!m::RunOrActivateOrMinimizeProgram("mintty.exe")
 <!a::ActiveWinTitleFromInput()
+
+#^1::RegisterWindow(1)
