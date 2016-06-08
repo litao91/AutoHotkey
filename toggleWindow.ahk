@@ -1,6 +1,6 @@
 ; Launch or toggle program, http://lifehacker.com/5468862/create-a-shortcut-key-for-restoring-a-specific-window
 ; -----------------------------------------------------------------------------
-ToggleWinMinimize(WindowTitle)
+ActivateWinByTitle(WindowTitle)
 {
     SetTitleMatchMode,2
     DetectHiddenWindows, Off
@@ -42,10 +42,10 @@ RunOrActivateOrMinimizeProgram(Program, WorkingDir="", WindowSize="")
 ActiveWinTitleFromInput()
 {
     InputBox, winTitle
-    ToggleWinMinimize(winTitle)
+    ActivateWinByTitle(winTitle)
 }
 
-ToggleWinMinimizeById(ID)
+ActivateWinByTitleById(ID)
 {
     WinActivate, ahk_id %ID%
 }
@@ -54,7 +54,7 @@ RegisterWindow(bindKey) {
     WinGet, WinId, ID, A
     MsgBox, %WinId% will be bind to %bindKey%
     key = %bindKey%
-    callback := Func("ToggleWinMinimizeById").bind(WinId)
+    callback := Func("ActivateWinByTitleById").bind(WinId)
     Hotkey, % key, % callback, On
 }
 
@@ -62,15 +62,15 @@ AskForKeyBindAndRegWin(bindKey) {
     WinGet, WinId, ID, A
     InputBox, key, ,"Enter the key you want to bind with %bindKey% to activate %WinId%"
     finalKey = %bindKey% & %key%
-    callback := Func("ToggleWinMinimizeById").bind(WinId)
+    callback := Func("ActivateWinByTitleById").bind(WinId)
     Hotkey, % finalKey, % callback, On
     MsgBox, "Bindinded %finalKey% to %WinId%"
 }
 
-<!h::ToggleWinMinimize("hadoop-main")
-<!s::ToggleWinMinimize("spark-parent")
-<!e::ToggleWinMinimize("Microsoft Edge")
-<!c::ToggleWinMinimize("ConsoleZ")
+<!h::ActivateWinByTitle("hadoop-main")
+<!s::ActivateWinByTitle("spark-parent")
+<!e::ActivateWinByTitle("Microsoft Edge")
+<!c::ActivateWinByTitle("ConsoleZ")
 <!m::RunOrActivateOrMinimizeProgram("mintty.exe")
 <!a::ActiveWinTitleFromInput()
 
