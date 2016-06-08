@@ -45,10 +45,9 @@ ActiveWinTitleFromInput()
 
 RegisterWindow(bindKey) {
     WinGetActiveTitle, WinTitle
-    key = #+%bindKey%
+    key = %bindKey%
     callback := Func("ToggleWinMinimize").bind(WinTitle)
-    MsgBox, %key%
-    Hotkey, %key%, callback, On
+    Hotkey, % key, % callback, On
 }
 
 <!h::ToggleWinMinimize("hadoop-main")
@@ -58,4 +57,4 @@ RegisterWindow(bindKey) {
 <!m::RunOrActivateOrMinimizeProgram("mintty.exe")
 <!a::ActiveWinTitleFromInput()
 
-#^1::RegisterWindow(1)
+#^1::RegisterWindow("#+1")
