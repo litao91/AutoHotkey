@@ -56,6 +56,15 @@ RegisterWindow(bindKey) {
     Hotkey, % key, % callback, On
 }
 
+AskForKeyBindAndRegWin(bindKey) {
+    WinGet, WinId, ID, A
+    InputBox, key, ,"Enter the key you want to bind with %bindKey% to activate %ID%"
+    finalKey = %bindKey% & %key%
+    callback := Func("ToggleWinMinimizeById").bind(WinId)
+    Hotkey, % finalKey, % callback, On
+    MsgBox, "Bindinded %finalKey% to %WinId%"
+}
+
 <!h::ToggleWinMinimize("hadoop-main")
 <!s::ToggleWinMinimize("spark-parent")
 <!e::ToggleWinMinimize("Microsoft Edge")
@@ -78,6 +87,7 @@ RegisterWindow(bindKey) {
 ^+7::RegisterWindow("Capslock & 7")
 ^+8::RegisterWindow("Capslock & 8")
 ^+9::RegisterWindow("Capslock & 9")
+^+m::AskForKeyBindAndRegWin("Capslock")
 
 #+1::RegisterWindow("Home & 1")
 #+2::RegisterWindow("Home & 2")
