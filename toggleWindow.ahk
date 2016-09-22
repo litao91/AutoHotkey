@@ -67,6 +67,7 @@ AskForKeyBindAndRegWin(bindKey) {
     MsgBox, "Bindinded %finalKey% to %WinId%"
 }
 
+/*
 <!h::ActivateWinByTitle("hadoop-main")
 <!s::ActivateWinByTitle("spark-parent")
 <!e::ActivateWinByTitle("Microsoft Edge")
@@ -100,4 +101,5 @@ AskForKeyBindAndRegWin(bindKey) {
 #+7::RegisterWindow("Alt & 7")
 #+8::RegisterWindow("Alt & 8")
 #+9::RegisterWindow("Alt & 9")
+*/
 #+m::AskForKeyBindAndRegWin("Alt")
